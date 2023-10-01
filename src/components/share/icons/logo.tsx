@@ -1,0 +1,25 @@
+export const Logo = (
+  {width, height}: {width: string, height: string}
+) => (
+  <svg x="0px" y="0px" viewBox="0 0 400 400"
+    width={width}
+    height={height}
+  >
+    <linearGradient id="play_gradient" gradientUnits="userSpaceOnUse" x1="-87.0258" y1="250.1069" x2="319.5347" y2="75.4577">
+      <stop  offset="0.3307" style="stop-color:#F15A24"/>
+      <stop  offset="1" style="stop-color:#D4145A"/>
+    </linearGradient>
+      <linearGradient id="bold_gradient" gradientUnits="userSpaceOnUse" x1="228.4787" y1="18.4609" x2="136.6891" y2="307.9509">
+      <stop  offset="0" style="stop-color:#FFAA00"/>
+      <stop  offset="0.4154" style="stop-color:#FFE600"/>
+    </linearGradient>
+    <path fill="url(#play_gradient)" d="M385.2,222.6L44.4,396.5C24.7,406.5,0,393.9,0,373.8V26.2C0,6.1,24.7-6.5,44.4,3.5L137.5,51l29.8,15.2
+      l21.9,11.2l6.8,3.5l25.3,12.9l8.7,4.4l155.2,79.2C404.9,187.4,404.9,212.6,385.2,222.6z"/>
+    <path class="st1" fill="#212121" opacity="0.4" d="M255.9,131.9L109.1,303.7l-2.4,2.3c-3.6,3.5-8.4-0.5-6.1-5l37.5-72.1c1.6-3.1-0.2-6.5-3.3-6.2l-20.2,1.8
+      c-3.1,0.3-5-3.2-3.4-6.3l23.8-45.9c1.5-3-0.1-6.3-3.1-6.3l-31.9,0.4c-2.7,0-4.4-2.8-3.3-5.7L137.5,51l29.8,15.2l21.9,11.2l6.8,3.5
+      l25.3,12.9l8.7,4.4l-11.6,19c-1.8,2.9-0.3,6.5,2.8,6.6l32.4,0.9C257,124.7,258.4,129,255.9,131.9z"/>
+    <path fill="url(#bold_gradient)" d="M272.8,32.7L159.5,30c-1.9,0-3.7,1.3-4.4,3.3L110,154.9c-1.1,2.9,0.6,5.7,3.4,5.7l31.9-0.4
+      c3,0,4.6,3.3,3.1,6.3l-23.8,45.9c-1.6,3.1,0.2,6.5,3.4,6.2l20.2-1.7c3.1-0.3,5,3.2,3.4,6.3l-37.6,72.1c-2.3,4.5,2.5,8.5,6.1,5
+      l2.4-2.3L269.1,126c2.5-2.9,1.1-7.2-2.3-7.3l-32.4-0.9c-3-0.1-4.5-3.6-2.8-6.6l43.9-72.1C277.3,36.3,275.8,32.7,272.8,32.7z"/>
+  </svg>
+);
