@@ -39,7 +39,7 @@ export default component$(() => {
                             return <>
                                 {movies.map(m => 
                                     <div class="splide__slide" key={m.id}>
-                                        <CardBig src={m.data().poster_url} altText={m.data().name} />
+                                        <CardBig movieData={noSerialize(m)} />
                                     </div>
                                 )}
                             </>

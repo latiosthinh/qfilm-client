@@ -51,6 +51,7 @@
     "@splidejs/splide": "^4.1.4",
     "@unpic/qwik": "^0.0.26",
     "firebase": "^10.4.0",
+    "nanoid": "^5.0.1",
     "qwik-image": "^0.0.8",
     "swiper": "^10.3.1"
   }

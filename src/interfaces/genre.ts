@@ -1,4 +1,4 @@
-interface IGenreData {
+export interface IGenreData {
 	id: string,
 	name: string,
 	slug: string
