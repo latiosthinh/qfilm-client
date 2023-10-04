@@ -20,21 +20,21 @@ export default component$(() => {
 				<li>
 					<Link href="/" class={location.url.pathname === "/" ? navItemActiveClasses : navItemClasses}>
 						<HomeIcon />
-						<span class="text-">Discovery</span>
+						<span class="text-">Khám phá</span>
 					</Link>
 				</li>
 
 				<li>
 					<Link href="/" class={location.url.pathname === "2" ? navItemActiveClasses : navItemClasses}>
 						<FlagIcon />
-						<span class="text-">Countries</span>
+						<span class="text-">Quốc gia</span>
 					</Link>
 				</li>
 
 				<li>
 					<Link href="/" class={location.url.pathname === "1" ? navItemActiveClasses : navItemClasses}>
 						<CategoryIcon />
-						<span class="text-">Genres</span>
+						<span class="text-">Thể loại</span>
 					</Link>
 				</li>
 			</ul>

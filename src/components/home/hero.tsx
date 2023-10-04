@@ -6,12 +6,14 @@ import CardBig from '../share/cards/card-big';
 import Splide from '@splidejs/splide'
 import splideStyles from '@splidejs/splide/dist/css/splide-core.min.css?inline'
 import Arrows from '../share/carousel/arrows';
+import { useGetUpdateMovies } from '~/api/ultis';
+import type { TOphimMovieExcerpt } from '~/types/ophim.type';
 
 export default component$(() => {
-    const getMovies = useGetNewestMovie()
+    const getMovies = useGetUpdateMovies()
     const movies = useResource$<NoSerialize<any>>(async () => {
         const data = await getMovies;
-        return noSerialize(data?.docs)
+        return data
     });
 
     useStylesScoped$(splideStyles);
@@ -27,7 +29,7 @@ export default component$(() => {
 
     return (
     <>
-        <h2 class="font-semibold text-2xl mb-4">Trending</h2>
+        <h2 class="font-semibold text-2xl mb-4">Phim mới cập nhật</h2>
         <section class="splide splide--hero">
             <div class="splide__track">
                 <div class="splide__list">
@@ -35,11 +37,11 @@ export default component$(() => {
                         value={movies}
                         onPending={() => <p>Loading...</p>}
                         onRejected={() => <p>Failed to load data</p>}
-                        onResolved={(movies: IMovie[]) => {
+                        onResolved={(movies: TOphimMovieExcerpt[]) => {
                             return <>
                                 {movies.map(m => 
-                                    <div class="splide__slide" key={m.id}>
-                                        <CardBig movieData={noSerialize(m)} />
+                                    <div class="splide__slide" key={m._id}>
+                                        <CardBig movieSlug={m.slug} />
                                     </div>
                                 )}
                             </>
