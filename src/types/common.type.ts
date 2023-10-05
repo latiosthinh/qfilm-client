@@ -46,7 +46,7 @@ export type TMovieData = {
 	episode_total: string,
 	quality: string,
 	category: TGenre[],
-	countries: TCountry[],
+	country: TCountry[],
 	actor: string[],
 	director: string[],
 }

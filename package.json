@@ -48,6 +48,8 @@
     "vite-tsconfig-paths": "4.2.0"
   },
   "dependencies": {
+    "@oplayer/core": "^1.2.31",
+    "@oplayer/ui": "^1.2.34-beta.1",
     "@splidejs/splide": "^4.1.4",
     "@unpic/qwik": "^0.0.26",
     "firebase": "^10.4.0",

@@ -6,8 +6,9 @@ import { BoltIcon, CategoryIcon, FlagIcon, HomeIcon } from "./icons/navigation";
 
 export default component$(() => {
 	const location = useLocation()
-	const navItemClasses = "flex items-center gap-4 pl-4 py-4 mb-4 hover:bg-black"
+	const navItemClasses = "flex items-center gap-4 pl-4 py-5 hover:bg-black"
     const navItemActiveClasses = `${navItemClasses} border-orange-200 border-r-[3px] text-orange-200 bg-black`
+	const liItemClass = "border-b-[1px] border-white border-opacity-5 last:border-0"
 
 	return (
 		<div class="sticky z-10 top-0 left-0 bg-zinc-900 h-[100vh]">
@@ -17,21 +18,21 @@ export default component$(() => {
 			</Link>
 
 			<ul>
-				<li>
+				<li class={liItemClass}>
 					<Link href="/" class={location.url.pathname === "/" ? navItemActiveClasses : navItemClasses}>
 						<HomeIcon />
 						<span class="text-">Khám phá</span>
 					</Link>
 				</li>
 
-				<li>
+				<li class={liItemClass}>
 					<Link href="/" class={location.url.pathname === "2" ? navItemActiveClasses : navItemClasses}>
 						<FlagIcon />
 						<span class="text-">Quốc gia</span>
 					</Link>
 				</li>
 
-				<li>
+				<li class={liItemClass}>
 					<Link href="/" class={location.url.pathname === "1" ? navItemActiveClasses : navItemClasses}>
 						<CategoryIcon />
 						<span class="text-">Thể loại</span>

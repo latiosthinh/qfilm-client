@@ -1,10 +1,8 @@
-import { Resource, component$, useResource$, type NoSerialize } from "@builder.io/qwik"
-import { useGetMovieBySlug } from "~/firebase/ultis"
-import type { IGenreData } from "~/interfaces/genre"
-import { IMovieData, type IMovie } from "~/interfaces/movie"
-import { PlayIcon } from "../icons/video"
+import { Resource, component$, useResource$ } from "@builder.io/qwik"
 import { Link } from "@builder.io/qwik-city"
+import { useGetMovieBySlug } from "~/firebase/ultis"
 import { type TOphimDetailData } from "~/types/ophim.type"
+import { PlayIcon } from "../icons/video"
 
 export default component$(({movieSlug}: {movieSlug: string}) => {
     const getMovieData = useGetMovieBySlug(movieSlug)
@@ -21,7 +19,7 @@ export default component$(({movieSlug}: {movieSlug: string}) => {
             onResolved={(movieData: TOphimDetailData) => {
                 return (
                     <article class="bg-zinc-900 group">
-                        <Link href={`/phim/${movieData.movie.slug}`} target="_blank">
+                        <Link href={`/${movieData.movie.slug}`} target="_blank">
                             <div class="relative pt-[56.25%]">
                                 <img class="absolute top-0 left-0 w-full h-full object-cover rounded-lg group-hover:opacity-40"
                                     src={movieData.movie.poster_url}
