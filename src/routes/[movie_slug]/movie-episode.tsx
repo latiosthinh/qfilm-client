@@ -1,8 +1,23 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext, $ } from "@builder.io/qwik";
 import { CameraIcon } from "~/components/share/icons/video";
+import { PlayerContext } from "~/context/context";
 import { type TOphimDetailData } from "~/types/ophim.type";
 
 export default component$(({movieData}: {movieData: TOphimDetailData}) => {
+	const videoSrc = useContext(PlayerContext)
+
+	const handleEpisodeClick = $((src: string) => {
+		if (!videoSrc.value) {
+			videoSrc.value = src
+			return
+		}
+
+		videoSrc.value = ""
+		setTimeout(() => {
+			videoSrc.value = src
+		}, 300);
+	})
+
 	return <>
 		<div class="mt-12">
 			<div class="flex gap-4 border-b-[1px] border-zinc-900 pb-2 items-center">
@@ -17,7 +32,9 @@ export default component$(({movieData}: {movieData: TOphimDetailData}) => {
 						<div class="flex flex-wrap gap-4">
 							{episode.server_data.map(item =>
 								<button key={item.slug} title={item.filename}
+									data-link={item.link_m3u8}
 									class="w-7 h-7 rounded bg-slate-700 hover:bg-orange-200"
+									onClick$={() => handleEpisodeClick(item.link_m3u8)}
 								>
 									{item.name}
 								</button>

@@ -843,6 +843,11 @@
   resolved "https://registry.npmjs.org/@oplayer/core/-/core-1.2.31.tgz"
   integrity sha512-KBoTdwaqcCVxO3xi7C+Z/2fRtSKc5FT/6PzUb/x6+vVUfNzU6hlbMqNDUrOqyERZHC+GHkFKhl0LJ255hIAYHQ==
 
+"@oplayer/hls@^1.2.23":
+  version "1.2.23"
+  resolved "https://registry.npmjs.org/@oplayer/hls/-/hls-1.2.23.tgz"
+  integrity sha512-4tvfye2tD31vZkhSkGpMOEIM43dioZkd+20riIIep1Ot6/p+ZPgDVUKTo1XJB+anIOQXb4nUKywiYWT3Uwim+g==
+
 "@oplayer/ui@^1.2.34-beta.1":
   version "1.2.34-beta.1"
   resolved "https://registry.npmjs.org/@oplayer/ui/-/ui-1.2.34-beta.1.tgz"
@@ -2358,6 +2363,11 @@ hast-util-whitespace@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/hast-util-whitespace/-/hast-util-whitespace-2.0.1.tgz"
   integrity sha512-nAxA0v8+vXSBDt3AnRUNjyRIQ0rD+ntpbAp4LnPkumc5M9yUbSMa4XDU9Q6etY4f1Wp4bNgvc1yjiZtsTTrSng==
+
+hls.js@*, hls.js@^1.4.12:
+  version "1.4.12"
+  resolved "https://registry.npmjs.org/hls.js/-/hls.js-1.4.12.tgz"
+  integrity sha512-1RBpx2VihibzE3WE9kGoVCtrhhDWTzydzElk/kyRbEOLnb1WIE+3ZabM/L8BqKFTCL3pUy4QzhXgD1Q6Igr1JA==
 
 hoist-non-react-statics@^3.3.1:
   version "3.3.2"

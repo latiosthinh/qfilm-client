@@ -7,7 +7,7 @@ import { DraggingContext } from '~/context/context';
 import { SpinnerIcon } from '../share/icons/video';
 
 export default component$(() => {
-    const heroSlider = useSignal<HTMLInputElement>();
+    const heroSlider = useSignal<HTMLElement>();
     const getMovies = useGetUpdateMovies()
     const movies = useResource$<NoSerialize<any>>(async () => {
         const data = await getMovies;
@@ -28,7 +28,7 @@ export default component$(() => {
         if (el.tagName === "A" || el.parentElement?.tagName === "A") return
         if (!heroSlider.value) return;
         // isDrag.value = true
-        const slider = heroSlider.value as HTMLElement;
+        const slider = heroSlider.value;
         mouseEvent.value.isMouseDown = true;
         mouseEvent.value.startX = e.pageX - slider.offsetLeft;
         mouseEvent.value.scrollLeftPos = slider.scrollLeft;
@@ -42,7 +42,7 @@ export default component$(() => {
     const handleMouseMove = $((e: QwikMouseEvent<HTMLAnchorElement, MouseEvent>) => {
         if(!mouseEvent.value.isMouseDown || !heroSlider.value) return;
         isDrag.value = true
-        const slider = heroSlider.value as HTMLElement;
+        const slider = heroSlider.value;
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - mouseEvent.value.startX);
         slider.scrollLeft = mouseEvent.value.scrollLeftPos - walk;
