@@ -29,7 +29,7 @@ export default component$(() => {
   return (
     <>
       <Header />
-      <main class="grid grid-cols-[300px_auto] relative">
+      <main class="grid xl:grid-cols-[250px_auto] relative">
         <Sidebar />
         <div class="p-8">
           <Slot />

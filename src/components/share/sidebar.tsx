@@ -12,7 +12,7 @@ export default component$(() => {
 
 	return (
 		<div class="sticky z-10 top-0 left-0 bg-zinc-900 h-[100vh]">
-			<Link href="/" title="fire film" class="px-4 py-8 mb-10 flex items-center gap-3">
+			<Link href="/" title="CineBOLT" class="px-4 py-8 mb-10 flex items-center gap-3">
 				<Logo width="30" height="30" />
 				<div>Cine<strong>BOLT</strong></div>
 			</Link>

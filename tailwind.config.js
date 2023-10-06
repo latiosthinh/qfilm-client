@@ -14,6 +14,10 @@ module.exports = {
       },
       gridTemplateColumns: {
         '1/3': '1fr 2fr'
+      },
+      gridAutoColumns: {
+        '1/2': '50%',
+        '1/3': '31%',
       }
     },
   },
