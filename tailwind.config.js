@@ -11,6 +11,13 @@ module.exports = {
           200: "#F15A24"
         },
         "yellow": "#FFE600"
+      },
+      gridTemplateColumns: {
+        '1/3': '1fr 2fr'
+      },
+      gridAutoColumns: {
+        '1/2': '50%',
+        '1/3': '31%',
       }
     },
   },

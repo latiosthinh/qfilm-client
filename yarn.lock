@@ -838,6 +838,16 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@oplayer/core@^1.2.31", "@oplayer/core@>=1.0.0":
+  version "1.2.31"
+  resolved "https://registry.npmjs.org/@oplayer/core/-/core-1.2.31.tgz"
+  integrity sha512-KBoTdwaqcCVxO3xi7C+Z/2fRtSKc5FT/6PzUb/x6+vVUfNzU6hlbMqNDUrOqyERZHC+GHkFKhl0LJ255hIAYHQ==
+
+"@oplayer/ui@^1.2.34-beta.1":
+  version "1.2.34-beta.1"
+  resolved "https://registry.npmjs.org/@oplayer/ui/-/ui-1.2.34-beta.1.tgz"
+  integrity sha512-jBsWkWxi4DR2EexPJiePfIB9x+CuQC13jCxkHsgJaH1mfzQuic+HKBlxEA4OPR0YpawXOlZ68ZZb1DcJD6gMHg==
+
 "@popperjs/core@^2.11.8":
   version "2.11.8"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
