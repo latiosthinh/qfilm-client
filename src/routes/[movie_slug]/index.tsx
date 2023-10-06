@@ -1,5 +1,7 @@
-import { Resource, component$, useResource$, useVisibleTask$ } from '@builder.io/qwik';
+import { Resource, component$, useContextProvider, useResource$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { useLocation } from '@builder.io/qwik-city';
+import ModalMovie from '~/components/share/modal/modal-movie';
+import { PlayerContext } from '~/context/context';
 import { useGetMovieBySlug } from '~/firebase/ultis';
 import type { TOphimDetailData } from '~/types/ophim.type';
 import MovieDetail from './movie-detail';
@@ -14,6 +16,9 @@ export default component$(() => {
         return data as TOphimDetailData
     })
 
+	const videoSrc = useSignal("")
+	useContextProvider(PlayerContext, videoSrc)
+
 	useVisibleTask$(() => {
 		movieData.value.then(data => document.title = data.movie.name)
 	});
@@ -23,13 +28,14 @@ export default component$(() => {
 		onPending={() => <p>Loading...</p>}
 		onRejected={() => <p>Failed to load data</p>}
 		onResolved={(movieData: TOphimDetailData) => {
-			return (
+			return <>
 				<article class="grid grid-cols-1/3 items-start gap-8">
 					<img class="object-cover w-full rounded-lg opacity-70 group-hover:opacity-50"
 						src={movieData.movie.thumb_url}
 						width={500}
 						height={330}
 						alt={movieData.movie.name}
+						title={movieData.movie.name}
 					/>
 
 					<div>
@@ -38,7 +44,11 @@ export default component$(() => {
 						<MovieEpisode movieData={movieData} />
 					</div>
 				</article>
-			)
+
+				{videoSrc.value &&
+					<ModalMovie />
+				}
+			</>
 		}}
 	/>
 });

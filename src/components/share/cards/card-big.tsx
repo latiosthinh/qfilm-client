@@ -1,10 +1,10 @@
-import { Resource, component$, useResource$, $, useStore, useSignal, type QwikMouseEvent, useContext, useVisibleTask$ } from "@builder.io/qwik"
-import { Link } from "@builder.io/qwik-city"
-import { useGetMovieBySlug } from "~/firebase/ultis"
-import type { TOphimMovieExcerpt} from "~/types/ophim.type";
-import { type TOphimDetailData } from "~/types/ophim.type"
-import { PlayIcon, SpinnerIcon } from "../icons/video"
+import { Resource, component$, useContext, useResource$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import { DraggingContext } from "~/context/context";
+import { useGetMovieBySlug } from "~/firebase/ultis";
+import type { TOphimMovieExcerpt } from "~/types/ophim.type";
+import { type TOphimDetailData } from "~/types/ophim.type";
+import { PlayIcon, SpinnerIcon } from "../icons/video";
 
 export default component$(({movieSlug, data}: {movieSlug: string, data: TOphimMovieExcerpt}) => {
     const getMovieData = useGetMovieBySlug(movieSlug)
@@ -24,9 +24,16 @@ export default component$(({movieSlug, data}: {movieSlug: string, data: TOphimMo
             onRejected={() => <p>Failed to load data</p>}
             onResolved={(movieData: TOphimDetailData) => {
                 return (
-                    <article class="bg-zinc-900 rounded-lg group relative select-none" title={movieData.movie.name}>
-                        <div class="relative pt-[56.25%]">
-                            <img class="absolute top-0 left-0 w-full h-full object-cover select-none rounded-lg group-hover:opacity-30"
+                    <article class="bg-zinc-900 rounded-lg group relative select-none overflow-hidden" title={movieData.movie.name}>
+                        <div class="absolute -top-[1px] -left-[1px] bg-orange-200 text-sm z-[1] px-3 py-1 rounded-br-lg">
+                            {movieData.movie.episode_total !== "1"
+                                ? <>{movieData.movie.episode_current}/{movieData.movie.episode_total}</>
+                                : <>{movieData.movie.episode_current}</>
+                            }
+                        </div>
+
+                        <div class="relative pt-[56.25%] rounded-lg overflow-hidden">
+                            <img class="absolute top-0 left-0 w-full h-full object-cover select-none group-hover:opacity-30"
                                 src={movieData.movie.poster_url || movieData.movie.thumb_url}
                                 width={500}
                                 height={330}
