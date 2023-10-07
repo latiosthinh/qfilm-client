@@ -1,7 +1,7 @@
 import { type TOphimNewData } from "~/types/ophim.type";
 import OPHIM_API from "./api";
 
-export const useGetUpdateMovies = async () => {
+export const useGetUpdatedMovies = async () => {
     const req = await fetch(OPHIM_API.QUERY_NEWEST)
 	const data = await req.json() as TOphimNewData
 

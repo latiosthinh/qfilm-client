@@ -1,5 +1,6 @@
 import { Resource, component$, useContextProvider, useResource$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { useLocation } from '@builder.io/qwik-city';
+import { BookmarkIcon } from '~/components/share/icons/video';
 import ModalMovie from '~/components/share/modal/modal-movie';
 import { PlayerContext } from '~/context/context';
 import { useGetMovieBySlug } from '~/firebase/ultis';
@@ -30,13 +31,21 @@ export default component$(() => {
 		onResolved={(movieData: TOphimDetailData) => {
 			return <>
 				<article class="grid grid-cols-1/3 items-start gap-8">
-					<img class="object-cover w-full rounded-lg opacity-70 group-hover:opacity-50"
-						src={movieData.movie.thumb_url}
-						width={500}
-						height={330}
-						alt={movieData.movie.name}
-						title={movieData.movie.name}
-					/>
+					<div class="relative">
+						<img class="object-cover w-full rounded-lg opacity-70 group-hover:opacity-50"
+							src={movieData.movie.thumb_url}
+							width={500}
+							height={330}
+							alt={movieData.movie.name}
+							title={movieData.movie.name}
+						/>
+
+						<div class="flex justify-end absolute bottom-4 left-0 px-4 w-full">
+							<button aria-label="bookmark" title="bookmark" class="hover:text-orange-200">
+								<BookmarkIcon />
+							</button>
+						</div>
+					</div>
 
 					<div>
 						<MovieInfo movieData={movieData} />

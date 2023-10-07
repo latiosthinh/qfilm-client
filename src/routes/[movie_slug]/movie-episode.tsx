@@ -32,8 +32,7 @@ export default component$(({movieData}: {movieData: TOphimDetailData}) => {
 						<div class="flex flex-wrap gap-4">
 							{episode.server_data.map(item =>
 								<button key={item.slug} title={item.filename}
-									data-link={item.link_m3u8}
-									class="w-7 h-7 rounded bg-slate-700 hover:bg-orange-200"
+									class={`${/\d/.test(item.slug) ? 'w-7' : 'px-2'} h-7 rounded bg-slate-700 hover:bg-orange-200`}
 									onClick$={() => handleEpisodeClick(item.link_m3u8)}
 								>
 									{item.name}
