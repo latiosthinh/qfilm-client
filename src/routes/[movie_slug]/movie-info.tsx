@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik"
-import { ClockIcon, MovieIcon } from "~/components/share/icons/video"
+import { CalendarIcon, ClockIcon, MovieIcon } from "~/components/share/icons/video"
 import { type TOphimDetailData } from "~/types/ophim.type"
 
 export default component$(({movieData}: {movieData: TOphimDetailData}) => {
@@ -11,8 +11,13 @@ export default component$(({movieData}: {movieData: TOphimDetailData}) => {
 
 		<div class="flex gap-3 opacity-70 text-sm">
 			<span class="inline-flex gap-1 items-center">
-				<MovieIcon />
+				<CalendarIcon />
 				{movieData.movie.year}
+			</span>
+			<span>&#8226;</span>
+			<span class="inline-flex gap-1 items-center">
+				<MovieIcon />
+				{movieData.movie.episode_total} tập
 			</span>
 			<span>&#8226;</span>
 			<span class="inline-flex gap-1 items-center">

@@ -1,21 +1,27 @@
-import { Resource, component$, useContext, useResource$ } from "@builder.io/qwik";
+import { Resource, component$, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import { DraggingContext } from "~/context/context";
 import { useGetMovieBySlug } from "~/firebase/ultis";
-import type { TOphimMovieExcerpt } from "~/types/ophim.type";
 import { type TOphimDetailData } from "~/types/ophim.type";
 import { PlayIcon, SpinnerIcon } from "../icons/video";
 
-export default component$(({movieSlug, data}: {movieSlug: string, data: TOphimMovieExcerpt}) => {
+export default component$(({movieSlug}: {movieSlug: string}) => {
     const getMovieData = useGetMovieBySlug(movieSlug)
     const movieData = useResource$(async () => {
         const data = await getMovieData
         return data as TOphimDetailData
     })
-
-    const isDrag = useContext(DraggingContext)
-
-    if (!data.slug) return <></>
+	const poster = useSignal<HTMLElement>();
+    useVisibleTask$(() => {
+        if (!poster.value) return
+        const http = new XMLHttpRequest();
+        const posterSrc = poster.value.getAttribute("src") as string
+        const posterThumbSrc = poster.value.dataset.src as string
+        http.open('HEAD', posterSrc, false);
+        http.send();
+        if (http.status == 404) {
+            poster.value.setAttribute("src", posterThumbSrc)
+        }
+    })
 
     return (
         <Resource
@@ -26,15 +32,16 @@ export default component$(({movieSlug, data}: {movieSlug: string, data: TOphimMo
                 return (
                     <article class="bg-zinc-900 rounded-lg group relative select-none overflow-hidden" title={movieData.movie.name}>
                         <div class="absolute -top-[1px] -left-[1px] bg-orange-200 text-sm z-[1] px-3 py-1 rounded-br-lg">
-                            {movieData.movie.episode_total !== "1"
+                            {movieData.movie.episode_total !== "1" && /\d/.test(movieData.movie.episode_total)
                                 ? <>{movieData.movie.episode_current}/{movieData.movie.episode_total}</>
                                 : <>{movieData.movie.episode_current}</>
                             }
                         </div>
 
                         <div class="relative pt-[56.25%] rounded-lg overflow-hidden">
-                            <img class="absolute top-0 left-0 w-full h-full object-cover select-none group-hover:opacity-30"
+                            <img ref={poster} class="absolute top-0 left-0 w-full h-full object-cover object-top select-none group-hover:opacity-30"
                                 src={movieData.movie.poster_url || movieData.movie.thumb_url}
+                                data-src={movieData.movie.thumb_url}
                                 width={500}
                                 height={330}
                                 alt={movieData.movie.name}
@@ -43,9 +50,6 @@ export default component$(({movieSlug, data}: {movieSlug: string, data: TOphimMo
 
                             <Link class="flex justify-center items-center w-16 h-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                                 opacity-0 group-hover:opacity-100 duration-300"
-                                onMouseMove$={() => isDrag.value = false}
-                                onMouseEnter$={() => isDrag.value = false}
-                                onMouseDown$={() => isDrag.value = false}
                                 href={`/${movieData.movie.slug}`} target="_blank" aria-label={movieData.movie.name}
                             >
                                 <PlayIcon width="14" height="14" />

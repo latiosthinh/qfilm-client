@@ -9,10 +9,6 @@ export default component$(() => {
 	const videoWrapper = useSignal<HTMLElement>();
 	const videoSrc = useContext(PlayerContext)
 
-	useTask$(async (taskContext) => {
-		taskContext.track(() => videoSrc.value);
-	})
-
 	useVisibleTask$(() => {
 		if (!videoWrapper.value) return
 		videoSrc.value && Player.make(videoWrapper.value, {
@@ -29,5 +25,10 @@ export default component$(() => {
 
 	return <Modal>
 		<div ref={videoWrapper}></div>
+		<button class="absolute top-0 left-0 hidden group-hover:block opacity-40 pb-1 px-2 bg-orange-200 hover:opacity-100"
+			onClick$={() => videoSrc.value = ""}
+		>
+			close
+		</button>
 	</Modal>
 })
