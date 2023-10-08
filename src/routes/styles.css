@@ -11,9 +11,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: #f15a24;
+	background-color: var(--scroll-thumb--color, #f15b242f);
   border-radius: 4px;
   cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  --scroll-thumb--color: #f15a24;
 }
 
 html {

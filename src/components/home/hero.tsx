@@ -15,7 +15,7 @@ export default component$(() => {
 
     return (
     <>
-        <Slider title="Phim mới cập nhật">
+        <Slider title="Phim mới cập nhật" extraClass="md:auto-cols-1/2 xl:auto-cols-2/5 mb-24">
             <Resource
                 value={movies}
                 onPending={() => <SpinnerIcon />}

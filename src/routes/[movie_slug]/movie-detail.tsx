@@ -7,7 +7,7 @@ import { type TOphimDetailData } from "~/types/ophim.type"
 export default component$(({movieData}: {movieData: TOphimDetailData}) => {
 	return <>
 		<div class="mt-12">
-			<div class="flex gap-4 border-b-[1px] border-zinc-900 pb-2 items-center">
+			<div class="flex gap-4 border-b-[1px] border-zinc-900 pb-2">
 				<h2 class="font-bold text-xl uppercase">Tổng quan</h2>
 				<span>|</span>
 				<Link class="text-orange-100 hover:text-orange-200 inline-flex gap-1 items-center duration-200"

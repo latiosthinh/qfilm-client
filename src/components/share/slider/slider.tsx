@@ -2,7 +2,7 @@ import { $, Slot, component$, useContextProvider, useSignal, type QwikMouseEvent
 import "swiper/swiper-bundle.css?inline";
 import { DraggingContext } from '~/context/context';
 
-export default component$(({title}: {title: string}) => {
+export default component$(({title, extraClass}: {title: string, extraClass: string}) => {
     const sliderRef = useSignal<HTMLElement>();
 
     const isDrag = useSignal(false)
@@ -46,9 +46,9 @@ export default component$(({title}: {title: string}) => {
     return (
     <>
         <h2 class="font-semibold text-2xl mb-4">{title}</h2>
-        <section class="grid grid-flow-col md:auto-cols-1/2 xl:auto-cols-1/3 gap-5 w-full pb-2
+        <section class={`grid grid-flow-col ${extraClass} gap-5 w-full pb-4
             overflow-x-auto overflow-y-hidden whitespace-nowrap overscroll-contain
-            select-none cursor-grab"
+            select-none`}
             ref={sliderRef}
             onMouseDown$={e => handleMouseDown(e)}
             onMouseUp$={() => handleMouseUp()}

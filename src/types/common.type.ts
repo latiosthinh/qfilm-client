@@ -23,6 +23,14 @@ export type TCountry = {
 	slug: string
 }
 
+export type TMovieType = {
+	id: string,
+	data: () => {
+		name: string,
+		slug: string
+	}
+}
+
 export type TMovieData = {
 	created: {
 		time: string

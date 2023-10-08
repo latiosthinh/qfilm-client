@@ -25,7 +25,7 @@ export default component$(() => {
 					</Link>
 				</li>
 
-				<li class={liItemClass}>
+				{/* <li class={liItemClass}>
 					<Link href="/" class={location.url.pathname === "2" ? navItemActiveClasses : navItemClasses}>
 						<FlagIcon />
 						<span class="text-">Quốc gia</span>
@@ -37,7 +37,7 @@ export default component$(() => {
 						<CategoryIcon />
 						<span class="text-">Thể loại</span>
 					</Link>
-				</li>
+				</li> */}
 			</ul>
 
 			<button class="flex items-center justify-center gap-2 
