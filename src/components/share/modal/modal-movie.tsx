@@ -1,9 +1,9 @@
-import { component$, useContext, useSignal, useStore, useTask$, useVisibleTask$ } from "@builder.io/qwik";
-import Modal from "./modal";
-import Player from '@oplayer/core'
-import ui from '@oplayer/ui'
-import OHLs from '@oplayer/hls'
+import { component$, useContext, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import Player from '@oplayer/core';
+import OHLs from '@oplayer/hls';
+import ui from '@oplayer/ui';
 import { PlayerContext } from "~/context/context";
+import Modal from "./modal";
 
 export default component$(() => {
 	const videoWrapper = useSignal<HTMLElement>();
@@ -14,7 +14,8 @@ export default component$(() => {
 		videoSrc.value && Player.make(videoWrapper.value, {
 			source: {
 				src: videoSrc.value
-			}
+			},
+			autoplay: true
 		})
 		.use([ui({
 			pictureInPicture: true
