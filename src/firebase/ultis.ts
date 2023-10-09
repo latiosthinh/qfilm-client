@@ -26,9 +26,10 @@ export const useGetMovieBySlug = async (slug: string) => {
 
 export const useGetTypes = async () => {
     const typeRef = collection(db, "type")
+    const typeQuery = query(typeRef, orderBy("name", "desc"))
 
     try {
-        const types = await getDocs(typeRef)
+        const types = await getDocs(typeQuery)
         if (types.docs.length > 0) {
             return types
         }
@@ -40,7 +41,7 @@ export const useGetTypes = async () => {
 export const useGetMovieByType = async (type: string) => {
     const movieRef = collection(db, "movies")
     const typeRef = doc(db, "type", type)
-    const movieQuery = query(movieRef, where("type", "==", typeRef), limit(5))
+    const movieQuery = query(movieRef, where("type", "==", typeRef), limit(6))
 
     try {
         const movies = await getDocs(movieQuery);

@@ -4,7 +4,6 @@ import { useGetMovieByType } from '~/firebase/ultis';
 import { type TMovieType } from '~/types/common.type';
 import CardMd from '../share/cards/card-md';
 import { SpinnerIcon } from '../share/icons/video';
-import Slider from '../share/slider/slider';
 
 export default component$(({title, slug}: {title: string, slug: string}) => {
     const getMovies = useGetMovieByType(slug)
@@ -15,9 +14,9 @@ export default component$(({title, slug}: {title: string, slug: string}) => {
 
     return (
     <>
-        <h2 class="font-semibold text-2xl mb-4">{title}</h2>
+        <h2 class="font-semibold text-2xl mb-4 border-r-2 border-orange-200">{title}</h2>
 
-        <div class="grid grid-flow-col md:auto-cols-1/2 xl:auto-cols-fr mb-20
+        <div class="grid grid-flow-col md:auto-cols-1/2 lg:auto-cols-fr mb-20
             gap-5 w-full pb-4
             overflow-x-auto overflow-y-hidden whitespace-nowrap overscroll-contain
             select-none ">
