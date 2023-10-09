@@ -1,8 +1,8 @@
-import { Resource, component$, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { Resource, component$, useResource$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import { useGetMovieBySlug } from "~/firebase/ultis";
 import { type TOphimDetailData } from "~/types/ophim.type";
-import { PlayIcon, SpinnerIcon, ClockIcon, MovieIcon } from "../icons/video";
+import { ClockIcon, MovieIcon, PlayIcon, SpinnerIcon } from "../icons/video";
 
 export default component$(({movieSlug}: {movieSlug: string}) => {
     const getMovieData = useGetMovieBySlug(movieSlug)
@@ -20,7 +20,7 @@ export default component$(({movieSlug}: {movieSlug: string}) => {
                 return (
                     <article class="rounded-lg group relative select-none overflow-hidden" title={movieData.movie.name}>
                         <div class="absolute -top-[1px] -left-[1px] bg-orange-200 text-sm z-[1] px-3 py-1 rounded-br-lg">
-                            {movieData.movie.episode_total !== "1" && /\d/.test(movieData.movie.episode_total)
+                            {movieData.movie.episode_total !== "1" && /\d/.test(movieData.movie.episode_total) && /\//.test(movieData.movie.episode_total)
                                 ? <>{movieData.movie.episode_current}/{movieData.movie.episode_total}</>
                                 : <>{movieData.movie.episode_current}</>
                             }

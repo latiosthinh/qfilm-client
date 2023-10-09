@@ -18,7 +18,10 @@ export default component$(() => {
 			autoplay: true
 		})
 		.use([ui({
-			pictureInPicture: true
+			pictureInPicture: true,
+			theme: {
+				primaryColor: '#F15A24'
+			}
 		})])
 		.use([OHLs()])
 		.create()
