@@ -1,10 +1,9 @@
 import { Resource, component$, useResource$, type NoSerialize } from '@builder.io/qwik';
-import "swiper/swiper-bundle.css?inline";
 import { useGetUpdatedMovies } from '~/api/ultis';
 import type { TOphimMovieExcerpt } from '~/types/ophim.type';
-import CardBig from '../share/cards/card-big';
-import { SpinnerIcon } from '../share/icons/video';
-import Slider from '../share/slider/slider';
+import CardBig from '~/components/share/cards/card-big';
+import { SpinnerIcon } from '~/components/share/icons/video';
+import Slider from '~/components/share/slider/slider';
 
 export default component$(() => {
     const getMovies = useGetUpdatedMovies()

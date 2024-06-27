@@ -1,5 +1,4 @@
 import { $, Slot, component$, useContextProvider, useSignal, type QwikMouseEvent } from '@builder.io/qwik';
-import "swiper/swiper-bundle.css?inline";
 import { DraggingContext } from '~/context/context';
 
 export default component$(({title, extraClass}: {title: string, extraClass: string}) => {

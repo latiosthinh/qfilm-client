@@ -30,7 +30,7 @@ export default component$(({movieSlug}: {movieSlug: string}) => {
             onRejected={() => <p>Failed to load data</p>}
             onResolved={(movieData: TOphimDetailData) => {
                 return (
-                    <article class="bg-zinc-900 rounded-lg group relative select-none overflow-hidden" title={movieData.movie.name}>
+                    <article class="bg-zinc-900 rounded-lg group relative select-none overflow-hidden max-w-[40vw]" title={movieData.movie.name}>
                         <div class="absolute -top-[1px] -left-[1px] bg-orange-200 text-sm z-[1] px-3 py-1 rounded-br-lg">
                             {movieData.movie.episode_total !== "1" && /\d/.test(movieData.movie.episode_total)
                                 ? <>{movieData.movie.episode_current}/{movieData.movie.episode_total}</>
